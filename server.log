@@ -28,3 +28,5 @@ info: Node server is running at localhost:5000 {"timestamp":"2018-10-13T02:13:33
 info: http://[object Object]:5000 {"timestamp":"2018-10-13T02:13:33.523Z"}
 info: Node server is running at localhost:5000 {"timestamp":"2018-10-13T02:20:17.045Z"}
 info: http://[object Object]:5000 {"timestamp":"2018-10-13T02:20:17.047Z"}
+info: Node server is running at localhost:5000 {"timestamp":"2018-10-13T03:44:48.864Z"}
+info: http://[object Object]:5000 {"timestamp":"2018-10-13T03:44:48.866Z"}
