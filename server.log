@@ -36,3 +36,7 @@ info: Node server is running at localhost:5000 {"timestamp":"2018-10-13T06:31:12
 info: http://[object Object]:5000 {"timestamp":"2018-10-13T06:31:12.595Z"}
 info: Node server is running at localhost:5000 {"timestamp":"2018-10-13T06:31:31.636Z"}
 info: http://[object Object]:5000 {"timestamp":"2018-10-13T06:31:31.639Z"}
+info: Node server is running at localhost:5000 {"timestamp":"2018-10-13T07:17:36.052Z"}
+info: http://[object Object]:5000 {"timestamp":"2018-10-13T07:17:36.055Z"}
+info: Node server is running at localhost:5000 {"timestamp":"2018-10-13T07:32:36.312Z"}
+info: http://[object Object]:5000 {"timestamp":"2018-10-13T07:32:36.315Z"}
