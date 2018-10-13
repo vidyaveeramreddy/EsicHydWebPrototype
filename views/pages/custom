@@ -1,0 +1,8 @@
+<% var page = "test"%>
+<% include ../partials/header/head.ejs %>
+
+
+<% include ../partials/header/nav.ejs %>
+
+
+<% include ../partials/footer/footer.ejs %>
