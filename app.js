@@ -124,6 +124,11 @@ app.get('/hospital', function (request, response) {
 
 });
 
+app.get('/hospital1', function (request, response) {
+  response.render('pages/hospital.1.ejs');
+
+});
+
 //hospital services
 app.get('/gs',function(request,response){
   response.render('pages/gs.ejs');
