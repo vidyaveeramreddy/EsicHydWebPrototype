@@ -1,14 +1,34 @@
 var express = require('express');
 var app = express();
-var ipa = require('ip');
-var os = require('os');
+// var ipa = require('ip');
+// var os = require('os');
 var winston = require('winston');
-const { createLogger, format, transports } = require('winston');
-const { combine, timestamp, label, prettyPrint } = format;
 
-function log(type,label,){
-  
-  // logger.log(type);
+
+
+const { createLogger, format, transports } = require('winston');
+const { combine, timestamp, label, printf } = format;
+
+const myMsg = printf(info => {
+  return `[${info.timestamp}] ${info.level}: ${info.message}`;
+});
+
+function log(msg, ip, method, route, level) {
+  if (level == null) {
+    level = "info";
+  }
+  var message = "";
+  if (ip != null && ip != "") {
+    message = ` ip= ${ip} `;
+  }
+  if (method != null && method != "") {
+    message += ` method= ${method} `;
+  }
+  if (route != null && route != "") {
+    message += ` route= ${route} `;
+  }
+  message += msg;
+  logger.log(level, message);
 }
 
 const myCustomLevels = {
@@ -30,21 +50,17 @@ const myCustomLevels = {
   }
 };
 winston.addColors(myCustomLevels.colors);
-// const myMsg = printf(info => {
-//   return `${info.timestamp} [${info.label}] ${info.level}: ${info.message}`;
-// });
+
 const logger = createLogger({
   levels: myCustomLevels.levels,
   format: format.combine(
-    // winston.format.colorize(),
     timestamp(),
-    // myMsg
-    format.splat(),
-    format.simple()
+    myMsg
   ),
   transports: [
     new winston.transports.Console(),
-    new winston.transports.File({ filename: 'server.log' })
+    new winston.transports.File({ filename: 'server.log' }),
+    new winston.transports.File({ filename: 'error.log', level: 'error' })
   ]
 });
 
@@ -59,6 +75,14 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+var bodyParser = require('body-parser');
+var methodOverride = require('method-override');
+
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
+app.use(methodOverride());
 
 function getIp(req) {
   var ip = (req.headers['x-forwarded-for'] || '').split(',').pop() ||
@@ -66,217 +90,235 @@ function getIp(req) {
     req.socket.remoteAddress ||
     req.connection.socket.remoteAddress;
   if (ip.substr(0, 7) == "::ffff:") {
-    ip = ip.substr(7)
+    ip = ip.substr(7);
   }
   return ip;
 }
 
-app.get('/', function (request, response) {
-  response.render("pages/index.ejs");
+function errLog(err, req, res , next) {
+  log(err.stack, getIp(req), req.method, req.route.path, 'error');
+  res.status(500).send('Oops Something broke..!');
+}
 
-  console.log(getIp(request));
+
+
+app.get('/', function (request, response) {
+
+  response.render("pages/index.ejs");
+  throw new Error("BROKEN");
+  log("", getIp(request), request.method, request.route.path);
+
+
 });
 
 app.get('/about', function (request, response) {
+
   response.render("pages/about.ejs");
+  log("", getIp(request), request.method, request.route.path);
+
 });
+
 app.get('/blog', function (request, response) {
+
   response.render("pages/blog.ejs");
+  log("", getIp(request), request.method, request.route.path);
+
+
 });
+
 app.get('/blogp', function (request, response) {
+
   response.render("pages/blog-post.ejs");
+  log("", getIp(request), request.method, request.route.path);
+
 });
+
 app.get('/contact', function (request, response) {
+
   response.render("pages/contact.ejs");
+  log("", getIp(request), request.method, request.route.path);
+
 });
-
-// app.get('/administration', function (request, response) {
-//   response.render("pages/administration.ejs");
-// });
-
-// app.get('/faculty', function (request, response) {
-//   response.render("pages/faculty.ejs");
-// });
-
-// app.get('/awards', function (request, response) {
-//   response.render("pages/awards&honors.ejs");
-// });
-
-// app.get('/commities', function (request, response) {
-//   response.render("pages/commities.ejs");
-// });
-
-// app.get('/media', function (request, response) {
-//   response.render("pages/media.ejs");
-// });
-
-// app.get('/approval', function (request, response) {
-//   response.render("pages/approval.ejs");
-// });
-
-// app.get('/infrastructure', function (request, response) {
-//   response.render("pages/infrastructure.ejs");
-// });
-
 
 app.get('/hospital', function (request, response) {
+
   response.render('pages/hospital.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 
 });
 
 app.get('/hospital1', function (request, response) {
+
   response.render('pages/hospital.1.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 
 });
 
 //hospital services
-app.get('/gs',function(request,response){
+app.get('/gs', function (request, response) {
+
   response.render('pages/gs.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/gm',function(request,response){
+app.get('/gm', function (request, response) {
+
   response.render('pages/gm.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/og',function(request,response){
+app.get('/og', function (request, response) {
+
   response.render('pages/og.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/pml',function(request,response){
+app.get('/pml', function (request, response) {
+
   response.render('pages/pml.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/dmt',function(request,response){
+app.get('/dmt', function (request, response) {
+
   response.render('pages/dmt.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/pdt',function(request,response){
+app.get('/pdt', function (request, response) {
+
   response.render('pages/pdt.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/pct',function(request,response){
+app.get('/pct', function (request, response) {
+
   response.render('pages/pct.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/otp',function(request,response){
+app.get('/otp', function (request, response) {
+
   response.render('pages/otp.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/opl',function(request,response){
+app.get('/opl', function (request, response) {
+
   response.render('pages/opl.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/ent',function(request,response){
+app.get('/ent', function (request, response) {
+
   response.render('pages/ent.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/ats',function(request,response){
+app.get('/ats', function (request, response) {
+
   response.render('pages/ats.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/rdd',function(request,response){
+app.get('/rdd', function (request, response) {
+
   response.render('pages/rdd.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/hmt',function(request,response){
+app.get('/hmt', function (request, response) {
+
   response.render('pages/hmt.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/dtt',function(request,response){
+app.get('/dtt', function (request, response) {
+
   response.render('pages/dtt.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/pst',function(request,response){
+app.get('/pst', function (request, response) {
+
   response.render('pages/pst.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/cbc',function(request,response){
+app.get('/cbc', function (request, response) {
+
   response.render('pages/cbc.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/cpt',function(request,response){
+app.get('/cpt', function (request, response) {
+
   response.render('pages/cpt.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/cmb',function(request,response){
+app.get('/cmb', function (request, response) {
+
   response.render('pages/cmb.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/nulhs',function(request,response){
+app.get('/nulhs', function (request, response) {
+
   response.render('pages/nulhs.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/nus',function(request,response){
+app.get('/nus', function (request, response) {
+
   response.render('pages/nus.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/pds',function(request,response){
+app.get('/pds', function (request, response) {
+
   response.render('pages/pds.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/url',function(request,response){
+app.get('/url', function (request, response) {
+
   response.render('pages/url.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/npl',function(request,response){
+app.get('/npl', function (request, response) {
+
   response.render('pages/npl.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-app.get('/cdl',function(request,response){
+app.get('/cdl', function (request, response) {
+
   response.render('pages/cdl.ejs');
+  log("", getIp(request), request.method, request.route.path);
+
 });
-
-// app.get('/gjier/:id', function (request, response) {
-//   var id = request.params.id;
-
-//   if (id == "gs") {
-//     response.render('pages/gs.ejs');
-//   } else if (id == "gm") {
-//     response.render('pages/gm.ejs');
-//   } else if (id == "og") {
-//     response.render('pages/og.ejs');
-//   } else if (id == "pml") {
-//     response.render('pages/pml.ejs');
-//   } else if (id == "dmt") {
-//     response.render('pages/dmt.ejs');
-//   } else if (id == "pdt") {
-//     response.render('pages/pdt.ejs');
-//   } else if (id == "pct") {
-//     response.render('pages/pct.ejs');
-//   } else if (id == "otp") {
-//     response.render('pages/otp.ejs');
-//   } else if (id == "opl") {
-//     response.render('pages/opl.ejs');
-//   } else if (id == "ent") {
-//     response.render('pages/ent.ejs');
-//   } else if (id == "ats") {
-//     response.render('pages/ats.ejs');
-//   } else if (id == "rdd") {
-//     response.render('pages/rdd.ejs');
-//   } else if (id == "hmt") {
-//     response.render('pages/hmt.ejs');
-//   } else if (id == "dtt") {
-//     response.render('pages/dtt.ejs');
-//   } else if (id == "pst") {
-//     response.render('pages/pst.ejs');
-//   } else if (id == "cbc") {
-//     response.render('pages/cbc.ejs');
-//   } else if (id == "cpt") {
-//     response.render('pages/cpt.ejs');
-//   } else if (id == "cmb") {
-//     response.render('pages/cmb.ejs');
-//   } else if (id == "nul") {
-//     response.render('pages/nul.ejs');
-//   } else if (id == "nus") {
-//     response.render('pages/nus.ejs');
-//   } else if (id == "pds") {
-//     response.render('pages/pds.ejs');
-//   } else if (id == "url") {
-//     response.render('pages/url.ejs');
-//   } else if (id == "npl") {
-//     response.render('pages/npl.ejs');
-//   } else if (id == "cdl") {
-//     response.render('pages/cdl.ejs');
-//   }
-//   else {
-//     // console.log("Request:105 /hospital/:id");
-//   }
-//   // console.log(Date.now()+" "+id);
-//   // response.send("ID: " +id);
-// });
 
 app.get('*', function (request, response) {
+
   response.render("pages/404.ejs");
+  log("", getIp(request), request.method, request.route.path);
+
 });
 
-// async function k() {
-//   const { address: ip } = await lookup(os.hostname());
-//   var networkAddress = `http://${ip}:${port}`;
-//   return networkAddress;
-// }
+
+app.use(errLog);
 app.listen(app.get('port'), process.env.IP, function () {
-  const { address: ip } = lookup(os.hostname());
-  var networkAddress = `http://${os.networkInterfaces()}:${app.get('port')}`;
-  // var networkAddress = `http://${os.hostname()}:${app.get('port')}`;
 
-  logger.info("Node server is running at localhost:" + app.get('port'));
-  logger.info(networkAddress);
-  // console.log();
+  // const { address: ip } = lookup(os.hostname());
+  // var networkAddress = `http://${os.networkInterfaces()}:${app.get('port')}`;
+  // var networkAddress = `http://${os.hostname()}:${app.get('port')}`;
+  log("Node Server running at port:" + app.get('port'));
+  // log("hello error", "", "", "", 'error');
+
 });
+
+
