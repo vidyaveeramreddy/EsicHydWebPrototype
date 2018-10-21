@@ -103,7 +103,6 @@ function errLog(err, req, res , next) {
 
 
 app.get('/', function (request, response) {
-
   response.render("pages/index.ejs");
   log("", getIp(request), request.method, request.route.path);
 });
