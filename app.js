@@ -152,6 +152,14 @@ app.get('/hospital1', function (request, response) {
 
 });
 
+app.get('/education',function(request,response){
+  response.render('pages/education.ejs');
+  log("", getIp(request), request.method, request.route.path);
+});
+app.get('/course',function(request,response){
+  response.render('pages/course.ejs');
+  log("", getIp(request), request.method, request.route.path);
+})
 //hospital services
 app.get('/gs', function (request, response) {
 
