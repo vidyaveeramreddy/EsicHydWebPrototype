@@ -1,0 +1,22 @@
+[2018-10-22T19:15:32.005Z] error:  ip= ::1  method= POST  route= /send ReferenceError: rotc is not defined
+    at D:\webDevelopment\Esic-p1-t2\app.js:336:17
+    at Layer.handle [as handle_request] (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\layer.js:95:5)
+    at D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\index.js:275:10)
+    at methodOverride (D:\webDevelopment\Esic-p1-t2\node_modules\method-override\index.js:79:5)
+    at Layer.handle [as handle_request] (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\layer.js:95:5)
+[2018-10-22T19:58:59.439Z] error:  ip= 192.168.43.1  method= POST  route= /send ReferenceError: subrotcc13 is not defined
+    at D:\webDevelopment\Esic-p1-t2\app.js:353:46
+    at Layer.handle [as handle_request] (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\layer.js:95:5)
+    at D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\index.js:275:10)
+    at cors (D:\webDevelopment\Esic-p1-t2\node_modules\cors\lib\index.js:188:7)
+    at D:\webDevelopment\Esic-p1-t2\node_modules\cors\lib\index.js:224:17

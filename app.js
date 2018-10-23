@@ -4,6 +4,9 @@ var app = express();
 // var os = require('os');
 var winston = require('winston');
 
+const sgMail = require('@sendgrid/mail');
+const cors = require('cors');
+
 
 
 const { createLogger, format, transports } = require('winston');
@@ -75,6 +78,8 @@ app.use(express.static(__dirname + '/public'));
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
+
+
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
@@ -83,6 +88,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(methodOverride());
+
+
+
+app.use(cors({ origin: true }));
+
 
 function getIp(req) {
   var ip = (req.headers['x-forwarded-for'] || '').split(',').pop() ||
@@ -95,7 +105,16 @@ function getIp(req) {
   return ip;
 }
 
-function errLog(err, req, res , next) {
+function rotcc13(str) {
+  var input = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890';
+  var output = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm0987654321';
+  var index = x => input.indexOf(x);
+  var translate = x => index(x) > -1 ? output[index(x)] : x;
+  return str.split('').map(translate).join('');
+}
+
+
+function errLog(err, req, res, next) {
   log(err.stack, getIp(req), req.method, req.route.path, 'error');
   res.status(500).send('Oops Something broke..!');
 }
@@ -152,11 +171,11 @@ app.get('/hospital1', function (request, response) {
 
 });
 
-app.get('/education',function(request,response){
+app.get('/education', function (request, response) {
   response.render('pages/education.ejs');
   log("", getIp(request), request.method, request.route.path);
 });
-app.get('/course',function(request,response){
+app.get('/course', function (request, response) {
   response.render('pages/course.ejs');
   log("", getIp(request), request.method, request.route.path);
 })
@@ -305,6 +324,107 @@ app.get('/cdl', function (request, response) {
   log("", getIp(request), request.method, request.route.path);
 
 });
+
+
+//mailer service
+app.post("/send", function (request, response) {
+  var ap1 = "FT";
+  var ap2 = "OBEsnUdNExXryjJybYuq4t";
+  var ap3 = "r8SJp0fiib41Su5YeYdzSTc76pH0cqWoBPOStbVuM5N";
+  var api = ap1 + "." + ap2 + "." + ap3;
+  sgMail.setApiKey(rotcc13(api));
+
+  if (request.method !== "POST") {
+    response.send(405, "Invalid Request")
+  } else {
+    const msg = {
+      to: 'paritoshsrivastava9199@gmail.com',
+      // cc: rotcc13(request.query.e),
+      from: 'noreply@esichyd.org',
+      subject: 'Message from ' + rotcc13(request.query.n) + ' regarding ' + rotcc13(request.query.s),
+      html: `<html>
+      <head>
+      </head>
+      <body>
+          <p>Hello Admin</p>
+          <p>You have a new message from a ${rotcc13(request.query.n)} regarding ${rotcc13(request.query.s)}.</p>
+          <p>
+              <em><strong>Name:</strong></em> ${rotcc13(request.query.n)}<br>
+              <em><strong>Subject:</strong></em> ${rotcc13(request.query.s)}<br>
+              <em><strong>Email:</strong></em> ${rotcc13(request.query.e)}<br>
+              <strong><em>Message:</em></strong><br>
+              ${request.query.m}
+              <br>
+              <p>To reply back to ${rotcc13(request.query.n)} please reply back to this email <a href="mailto:${rotcc13(request.query.e)}">${rotcc13(request.query.e)}</a></p>
+              <p><em>This is an auto generated email.Please do not reply back to this email.</em></p>
+      
+          </p>
+          <p>Thanks and Regards,<br>
+              Your ESIC Team.</p>
+      </body>
+      </html>`
+      // texdt: rotcc13(request.query.n) + " Email: " + rotcc13(request.query.e) + " Phone: " + rotcc13(request.query.p) + " Message: " + rotcc13(request.query.m),
+      // html: "<strong>" + rotcc13(request.query.n) + "</strong><br>Email: " + rotcc13(request.query.e) + " <br>Phone: " + rotcc13(request.query.p) + " <br><h5>Message: </h5>" + rotcc13(request.query.m),
+    };
+
+    const msg_ack = {
+      to: 'paritoshsrivastava9199@gmail.com',
+      // cc: rotcc13(request.query.e),
+      from: 'noreply@esichyd.org',
+      subject: 'Message from ' + rotcc13(request.query.n) + ' regarding ' + rotcc13(request.query.s),
+      html: `<html>
+      <head>
+      </head>
+      <body>
+          <p>Dear ${rotcc13(request.query.n)}</p>
+          <p>Thank you for your message regarding ${rotcc13(request.query.s)}. Resolving your issues and answering questions are a top priority for us. A member of our support team will follow up with you today to resolve your inquiry.</p>
+          <p><em>The entire ESIC team looks forward to a very professional working relationship with you, and we ready to
+              support you in any way possible to serve you better.</em></p>
+          <p>Thank you for contacting us! We value your feedback/suggestions/complaint. To give your valued opinion please use this <a href="#">link</a>.<br><em>This is an auto generated email.Please do not reply back to this email.</em></p>
+          
+          Thanks and Regards,<br>
+          Your ESIC Team.
+      </body>
+      </html>`
+    };
+    try {
+      var b = 0;
+      sgMail.send(msg).then(function () {
+
+        sgMail.send(msg_ack).then(function () {
+          b = 1;
+          response.send({ success: true });
+          response.end();
+          return { success: true };
+          // response.send(rotcc13(request.query.n)+" Email: "+rotcc13(request.query.e)+" Phone: "+rotcc13(request.query.p)+" Message: "+rotcc13(request.query.m));
+        }).catch(function (err) {
+          b = 0;
+          console.log(err);
+          response.send({ success: false });
+          response.end();
+        });
+
+
+        // b = 1;
+        // response.send({ success: true });
+        // response.end();
+        // return { success: true };
+        // response.send(rotcc13(request.query.n)+" Email: "+rotcc13(request.query.e)+" Phone: "+rotcc13(request.query.p)+" Message: "+rotcc13(request.query.m));
+      }).catch(function (err) {
+        b = 0;
+        console.log(err);
+        response.send({ success: false });
+        response.end();
+      });
+
+    } catch (err) {
+      // console.log(err);
+      // response.send("mail not sent! Server err: "+err);
+    }
+    // response.send("yo!");
+  }
+});
+
 
 app.get('*', function (request, response) {
 

@@ -1,0 +1,173 @@
+[2018-10-22T08:47:47.070Z] info:  ip= ::1  method= GET  route= /about 
+[2018-10-22T08:48:03.107Z] info:  ip= ::1  method= GET  route= /hospital 
+[2018-10-22T08:48:08.213Z] info:  ip= ::1  method= GET  route= /gs 
+[2018-10-22T08:48:24.273Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T08:51:07.179Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-22T08:54:18.587Z] info:  ip= ::1  method= GET  route= /hospital 
+[2018-10-22T08:54:36.431Z] info:  ip= ::1  method= GET  route= /about 
+[2018-10-22T09:00:36.222Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T09:05:28.803Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-22T10:24:56.676Z] info:  ip= ::1  method= GET  route= /education 
+[2018-10-22T10:25:11.280Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-22T10:47:21.184Z] info: Node Server running at port:5000
+[2018-10-22T10:50:34.566Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T10:51:10.522Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T10:52:51.787Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T10:53:39.183Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T10:53:57.986Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T10:54:11.469Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T10:54:27.518Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-22T10:54:28.781Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T10:55:40.507Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T10:55:41.952Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T10:55:46.642Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T10:55:47.694Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T11:05:50.360Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T11:05:52.417Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T11:06:21.354Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T11:06:41.101Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T11:24:16.659Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T11:24:20.029Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T11:30:36.511Z] info:  ip= ::1  method= GET  route= /about 
+[2018-10-22T11:30:37.168Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T11:31:00.564Z] info:  ip= ::1  method= GET  route= /about 
+[2018-10-22T11:31:01.597Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T11:31:03.599Z] info:  ip= ::1  method= GET  route= /hospital 
+[2018-10-22T11:31:05.860Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T11:31:19.228Z] info:  ip= ::1  method= GET  route= /gs 
+[2018-10-22T11:31:20.248Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T11:34:41.631Z] info:  ip= ::1  method= GET  route= /hospital 
+[2018-10-22T11:36:06.584Z] info:  ip= ::1  method= GET  route= /gs 
+[2018-10-22T11:36:07.788Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T11:36:49.465Z] info:  ip= ::1  method= GET  route= /gm 
+[2018-10-22T11:39:38.491Z] info:  ip= ::1  method= GET  route= /gm 
+[2018-10-22T11:39:57.268Z] info:  ip= ::1  method= GET  route= /hospital 
+[2018-10-22T11:40:01.198Z] info:  ip= ::1  method= GET  route= /og 
+[2018-10-22T11:42:52.073Z] info:  ip= ::1  method= GET  route= /og 
+[2018-10-22T11:43:08.532Z] info:  ip= ::1  method= GET  route= /hospital 
+[2018-10-22T11:43:15.237Z] info:  ip= ::1  method= GET  route= /pml 
+[2018-10-22T11:44:45.718Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T11:49:12.737Z] info:  ip= ::1  method= GET  route= /hospital 
+[2018-10-22T11:50:16.921Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T11:52:23.231Z] info:  ip= ::1  method= GET  route= /pml 
+[2018-10-22T11:53:19.402Z] info:  ip= ::1  method= GET  route= /dmt 
+[2018-10-22T11:53:19.423Z] info:  ip= ::1  method= GET  route= /dmt 
+[2018-10-22T11:54:06.518Z] info:  ip= ::1  method= GET  route= /dmt 
+[2018-10-22T11:54:59.742Z] info:  ip= ::1  method= GET  route= /pdt 
+[2018-10-22T12:01:04.972Z] info:  ip= ::1  method= GET  route= /pdt 
+[2018-10-22T12:09:23.747Z] info:  ip= ::1  method= GET  route= /pct 
+[2018-10-22T12:13:04.593Z] info:  ip= ::1  method= GET  route= /pct 
+[2018-10-22T12:13:13.729Z] info:  ip= ::1  method= GET  route= /otp 
+[2018-10-22T12:16:33.769Z] info:  ip= ::1  method= GET  route= /otp 
+[2018-10-22T12:16:59.512Z] info:  ip= ::1  method= GET  route= /opl 
+[2018-10-22T12:17:54.721Z] info:  ip= ::1  method= GET  route= /gm 
+[2018-10-22T12:21:50.076Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-22T12:29:18.595Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T12:45:16.216Z] info:  ip= ::1  method= GET  route= /hospital 
+[2018-10-22T12:45:20.485Z] info:  ip= ::1  method= GET  route= /gs 
+[2018-10-22T12:45:24.137Z] info:  ip= ::1  method= GET  route= /gm 
+[2018-10-22T17:07:16.174Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-22T18:11:57.874Z] info: Node Server running at port:5000
+[2018-10-22T19:00:50.415Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-22T19:04:12.227Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T19:12:07.054Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T19:12:07.713Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T19:12:42.743Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T19:13:16.036Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T19:13:17.440Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T19:13:48.891Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T19:13:57.116Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T19:15:19.982Z] info: Node Server running at port:5000
+[2018-10-22T19:15:23.725Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T19:15:24.614Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T19:15:27.724Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-22T19:15:32.005Z] error:  ip= ::1  method= POST  route= /send ReferenceError: rotc is not defined
+    at D:\webDevelopment\Esic-p1-t2\app.js:336:17
+    at Layer.handle [as handle_request] (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\layer.js:95:5)
+    at D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\index.js:275:10)
+    at methodOverride (D:\webDevelopment\Esic-p1-t2\node_modules\method-override\index.js:79:5)
+    at Layer.handle [as handle_request] (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\layer.js:95:5)
+[2018-10-22T19:16:29.793Z] info: Node Server running at port:5000
+[2018-10-22T19:16:32.868Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T19:16:41.745Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-22T19:19:43.628Z] info:  ip= 192.168.43.1  method= GET  route= / 
+[2018-10-22T19:20:50.144Z] info: Node Server running at port:5000
+[2018-10-22T19:21:03.250Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T19:21:23.259Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T19:22:09.059Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-22T19:22:27.356Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T19:23:17.875Z] info:  ip= 192.168.43.1  method= GET  route= / 
+[2018-10-22T19:23:20.699Z] info:  ip= 192.168.43.1  method= GET  route= / 
+[2018-10-22T19:23:35.345Z] info:  ip= 192.168.43.1  method= GET  route= / 
+[2018-10-22T19:25:13.721Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T19:25:26.090Z] info:  ip= 192.168.43.1  method= GET  route= / 
+[2018-10-22T19:25:33.732Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T19:25:38.671Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T19:27:12.534Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-22T19:27:13.837Z] info:  ip= 192.168.43.1  method= GET  route= /about 
+[2018-10-22T19:27:14.390Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T19:27:25.066Z] info:  ip= 192.168.43.1  method= GET  route= /contact 
+[2018-10-22T19:27:34.459Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T19:27:54.151Z] info:  ip= ::1  method= GET  route= /hospital 
+[2018-10-22T19:28:57.780Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-22T19:28:58.005Z] info:  ip= 192.168.43.1  method= GET  route= / 
+[2018-10-22T19:29:01.986Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T19:58:06.916Z] info: Node Server running at port:5000
+[2018-10-22T19:58:20.018Z] info: Node Server running at port:5000
+[2018-10-22T19:58:21.424Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T19:58:24.212Z] info:  ip= 192.168.43.1  method= GET  route= /contact 
+[2018-10-22T19:58:41.725Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T19:58:59.439Z] error:  ip= 192.168.43.1  method= POST  route= /send ReferenceError: subrotcc13 is not defined
+    at D:\webDevelopment\Esic-p1-t2\app.js:353:46
+    at Layer.handle [as handle_request] (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\layer.js:95:5)
+    at next (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\route.js:137:13)
+    at Route.dispatch (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\route.js:112:3)
+    at Layer.handle [as handle_request] (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\layer.js:95:5)
+    at D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\index.js:281:22
+    at Function.process_params (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\index.js:335:12)
+    at next (D:\webDevelopment\Esic-p1-t2\node_modules\express\lib\router\index.js:275:10)
+    at cors (D:\webDevelopment\Esic-p1-t2\node_modules\cors\lib\index.js:188:7)
+    at D:\webDevelopment\Esic-p1-t2\node_modules\cors\lib\index.js:224:17
+[2018-10-22T19:59:28.135Z] info: Node Server running at port:5000
+[2018-10-22T19:59:29.517Z] info:  ip= 192.168.43.1  method= GET  route= /contact 
+[2018-10-22T19:59:31.589Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T19:59:51.657Z] info:  ip= 192.168.43.1  method= GET  route= / 
+[2018-10-22T19:59:55.469Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T20:01:05.032Z] info: Node Server running at port:5000
+[2018-10-22T20:01:13.798Z] info:  ip= 192.168.43.1  method= GET  route= /contact 
+[2018-10-22T20:01:15.576Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T20:01:44.669Z] info: Node Server running at port:5000
+[2018-10-22T20:02:06.539Z] info:  ip= 192.168.43.1  method= GET  route= / 
+[2018-10-22T20:02:10.010Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T20:04:07.759Z] info: Node Server running at port:5000
+[2018-10-22T20:04:12.195Z] info:  ip= 192.168.43.1  method= GET  route= /contact 
+[2018-10-22T20:04:14.931Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T20:04:52.825Z] info:  ip= 192.168.43.1  method= GET  route= / 
+[2018-10-22T20:04:59.990Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T20:05:36.423Z] info: Node Server running at port:5000
+[2018-10-22T20:05:36.883Z] info:  ip= 192.168.43.1  method= GET  route= /contact 
+[2018-10-22T20:05:54.873Z] info:  ip= 192.168.43.1  method= GET  route= /contact 
+[2018-10-22T20:06:06.342Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T20:06:29.586Z] info:  ip= 192.168.43.1  method= GET  route= / 
+[2018-10-22T20:06:33.067Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-22T20:07:08.552Z] info:  ip= 192.168.43.1  method= GET  route= * 
+[2018-10-23T07:23:50.743Z] info: Node Server running at port:5000
+[2018-10-23T07:24:05.299Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-23T07:24:51.918Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-23T07:24:56.444Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-23T07:24:56.447Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-23T07:28:16.161Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-23T07:30:35.452Z] info:  ip= ::1  method= GET  route= /hospital 
+[2018-10-23T07:30:50.120Z] info:  ip= ::1  method= GET  route= /gs 
+[2018-10-23T08:16:08.088Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-23T08:20:41.553Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-23T08:21:34.633Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-23T08:30:47.396Z] info: Node Server running at port:5000
+[2018-10-23T08:30:52.110Z] info:  ip= ::1  method= GET  route= /contact 
+[2018-10-23T08:31:48.827Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-23T08:32:18.067Z] info:  ip= ::1  method= GET  route= /contact 
