@@ -368,10 +368,10 @@ app.post("/send", function (request, response) {
     };
 
     const msg_ack = {
-      to: 'paritoshsrivastava9199@gmail.com',
+      to: rotcc13(request.query.e),
       // cc: rotcc13(request.query.e),
       from: 'noreply@esichyd.org',
-      subject: 'Message from ' + rotcc13(request.query.n) + ' regarding ' + rotcc13(request.query.s),
+      subject: 'Noreply: Message from Esic regarding ' + rotcc13(request.query.s),
       html: `<html>
       <head>
       </head>
