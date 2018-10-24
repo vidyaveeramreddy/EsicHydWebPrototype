@@ -300,3 +300,6 @@
 [2018-10-23T15:07:26.759Z] info:  ip= ::1  method= GET  route= * 
 [2018-10-23T15:07:39.669Z] info:  ip= ::1  method= GET  route= / 
 [2018-10-23T15:07:40.077Z] info:  ip= ::1  method= GET  route= * 
+[2018-10-24T05:25:06.272Z] info: Node Server running at port:5000
+[2018-10-24T05:25:13.529Z] info:  ip= ::1  method= GET  route= / 
+[2018-10-24T05:25:15.053Z] info:  ip= ::1  method= GET  route= * 
